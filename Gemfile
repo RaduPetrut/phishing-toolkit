@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.1'
 # Using Bootstrap to manage CSS styles
 gem 'bootstrap-sass', '3.3.6'
+# Using font-awesome for the Github icon
+gem "font-awesome-rails"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

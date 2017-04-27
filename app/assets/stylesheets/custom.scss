@@ -1,9 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
-
-$gray-medium-light: #eaeaea;
+$white: #fff;
 $custom-black: #24292e;
+$gray-medium-light: #eaeaea;
 
 header {
   background-color: $custom-black !important;
@@ -18,28 +19,44 @@ html, body {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #fff;
+    color: $gray-light;
     text-decoration: none;
   } 
 }
 
-.github-icon {
+#sign-in, #sign-up {
+  color: $white;
+  font-weight: bold;
+  &:hover {
+    color: $gray-light;
+  } 
+}
+
+#or {
+  color: $gray-light;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#github-icon {
   outline: 0 !important;
-  color: #fff !important;
+  color: $white !important;
   text-decoration: none !important;
   &:hover {
     color: $gray-light !important;
   } 
 }
 
-.hook-icon {
+#hook-icon {
   float: left;
+  pointer-events: none;
 }
 
 .push {
@@ -55,7 +72,7 @@ footer {
   height: 50px;
   color: #777;
   div {
-    border-top: 1px solid #eaeaea;  
+    border-top: 1px solid $gray-medium-light;  
   }
   a {
     color: #555;
