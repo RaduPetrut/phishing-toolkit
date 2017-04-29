@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
+# rails test:integration error: NoMethodError: assert_template has been extracted to a gem
+gem 'rails-controller-testing'
 # State-of-the-art hash function used by has_secure_password to generate the password digest 
 gem 'bcrypt',         '3.1.11'
 # Using Bootstrap to manage CSS styles

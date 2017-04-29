@@ -1,12 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "phishing toolkit", '#', id: "logo" %>
+    <%= link_to "phishing toolkit", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Sign in", '#', id: "sign-in" %></li>
         <li id="or">or</li>
-        <li><%= link_to "Sign up", '#', id: "sign-up" %></li>
-        <li><a class="fa fa-github fa-2x" id="github-icon" target="_blank"  href="https://github.com/RaduPetrut/phishing-toolkit"></a></li>
+        <li><%= link_to "Sign up", signup_path, id: "sign-up" %></li>
+        <li>
+          <a class="fa fa-github fa-2x" id="github-icon" target="_blank"  href="https://github.com/RaduPetrut/phishing-toolkit"></a>
+        </li>
       </ul>
     </nav>
   </div>

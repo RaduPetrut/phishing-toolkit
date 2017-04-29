@@ -2,9 +2,14 @@
 @import "bootstrap";
 @import "font-awesome";
 
-$white: #fff;
 $custom-black: #24292e;
 $gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 
 header {
   background-color: $custom-black !important;
@@ -19,7 +24,7 @@ html, body {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $white;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -31,7 +36,7 @@ html, body {
 }
 
 #sign-in, #sign-up {
-  color: $white;
+  color: white;
   font-weight: bold;
   &:hover {
     color: $gray-light;
@@ -47,7 +52,7 @@ html, body {
 
 #github-icon {
   outline: 0 !important;
-  color: $white !important;
+  color: white !important;
   text-decoration: none !important;
   &:hover {
     color: $gray-light !important;
@@ -70,14 +75,14 @@ html, body {
 
 footer {
   height: 50px;
-  color: #777;
+  color: $gray-light;
   div {
     border-top: 1px solid $gray-medium-light;  
   }
   a {
-    color: #555;
+    color: $gray;
     &:hover {
-      color: #222;
+      color: $gray-darker;
     }
   }
   small {
@@ -91,4 +96,12 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
