@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = @user = User.new(user_params)
+    @user = User.new(user_params)
     if @user.save
+      log_in @user
     	flash[:success] = "Welcome to Phishing Toolkit."
      	redirect_to @user
     else
