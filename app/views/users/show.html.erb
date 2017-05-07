@@ -1,1 +1,6 @@
-<%= @user.name %>, <%= @user.email %>
+<% provide(:title, 'Dashboard') %>
+<h1 class="col-md-6">Dashboard</h1>
+
+<div class="col-md-6">
+	You are signed in as <b><%= @user.name %></b> (<%= @user.email %>).
+</div>

@@ -37,7 +37,6 @@ h1 {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $gray-light;
     text-decoration: none;
   } 
 }
@@ -46,7 +45,7 @@ h1 {
   color: white;
   font-weight: bold;
   &:hover {
-    color: $gray-light;
+    text-decoration: underline;
   } 
 }
 
@@ -62,7 +61,7 @@ h1 {
   color: white !important;
   text-decoration: none !important;
   &:hover {
-    color: $gray-light !important;
+    /*color: $gray-light !important;*/
   } 
 }
 
