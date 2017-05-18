@@ -12,6 +12,11 @@ gem 'rails', '~> 5.0.1'
 gem 'rails-controller-testing'
 # State-of-the-art hash function used by has_secure_password to generate the password digest 
 gem 'bcrypt',         '3.1.11'
+# Pagination
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
+# Adding sample models
+gem 'faker',          '1.6.6'
 # Using Bootstrap to manage CSS styles
 gem 'bootstrap-sass', '3.3.6'
 # Using font-awesome for the Github icon

@@ -62,5 +62,12 @@ class UserTest < ActiveSupport::TestCase
     	assert_not @user.valid?
   	end
 
+  	test "associated templates should be destroyed" do
+	    @user.save
+	    @user.templates.create!(name: "User test template")
+	    assert_difference 'Template.count', -1 do
+	      @user.destroy
+	    end
+  	end
 
 end

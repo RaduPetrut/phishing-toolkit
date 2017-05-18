@@ -137,3 +137,24 @@ input {
     color: $state-danger-text;
   }
 }
+
+/* templates */
+
+.templates {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .name {
+    display: block;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+}
+
+
+

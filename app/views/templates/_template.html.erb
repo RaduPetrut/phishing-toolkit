@@ -1,0 +1,8 @@
+<li id="template-<%= template.id %>">
+	<%= link_to template.name, template %>
+ 	<span class="timestamp">
+    Created <%= time_ago_in_words(template.created_at) %> ago.
+    <%= link_to "delete", template, method: :delete, 
+    									data: { confirm: "Are you sure?" } %>
+  </span>
+</li>

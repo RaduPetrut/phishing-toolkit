@@ -1,0 +1,12 @@
+<% provide(:title, 'Templates') %>
+<h1 class="col-md-6">Templates</h1>
+
+<div class="col-md-6">
+    <% if @current_user.templates.any? %>
+        <ol class="templates">
+            <%= render @templates %>
+        </ol>
+        <%= will_paginate @templates %>
+    <% end %> 
+</div>
+ 
