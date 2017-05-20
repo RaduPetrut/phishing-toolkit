@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   post '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  get '/templates/new',  to: 'templates#new'
-  post '/templates/new',  to: 'templates#create'
+  post '/start/campaign', to: 'campaigns#start_campaign'
 
   resources :users
   resources :templates
+  resources :campaigns
 end

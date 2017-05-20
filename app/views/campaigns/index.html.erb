@@ -1,0 +1,12 @@
+<% provide(:title, 'Campaigns') %>
+<h1 class="col-md-6">Campaigns</h1>
+
+<div class="col-md-6">
+    <% if @current_user.campaigns.any? %>
+        <ol class="campaigns">
+            <%= render @campaigns %>
+        </ol>
+        <%= will_paginate @campaigns %>
+    <% end %> 
+</div>
+ 

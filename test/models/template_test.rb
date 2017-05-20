@@ -31,8 +31,8 @@ class TemplateTest < ActiveSupport::TestCase
     assert @template.valid?
   end
 
-  test "description should be at most 30 characters if present" do
-    @template.description = "a" * 141
+  test "description should be at most 200 characters if present" do
+    @template.description = "a" * 201
     assert_not @template.valid?
   end
 

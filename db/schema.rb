@@ -10,17 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518120918) do
+ActiveRecord::Schema.define(version: 20170518130331) do
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "smtp_server"
     t.string   "from"
     t.string   "from_alias"
     t.string   "subject"
+    t.integer  "template_id"
+    t.text     "victims",     limit: 65535
     t.index ["user_id", "created_at"], name: "index_campaigns_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end

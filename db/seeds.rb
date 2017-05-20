@@ -23,7 +23,22 @@ end
 
 users = User.order(:created_at).take(6)
 50.times do |n|
-  name = "FakeTemplate_#{n+1}"
-  description = Faker::Lorem.sentence(5)
-  users.each { |user| user.templates.create!(name: name, description: description) }
+  template_name = "FakeTemplate_#{n+1}"
+  template_description = Faker::Lorem.sentence(5)
+  campaign_name = "FakeCampaign_#{n+1}"
+  campaign_smtp_server = "smtp_server_#{n+1}"
+  campaign_from = "from_#{n+1}"
+  campaign_from_alias = "from_alias_#{n+1}"
+  campaign_subject = "subject_#{n+1}"
+  campaign_template_id = n+1
+  campaign_victims = "victims_#{n+1}"
+  users.each { |user| user.templates.create!(name: template_name, 
+                                          description: template_description) }
+  users.each { |user| user.campaigns.create!(name: campaign_name, 
+                                          smtp_server: campaign_smtp_server, 
+                                          from: campaign_from, 
+                                          from_alias: campaign_from_alias,
+                                          subject: campaign_subject,
+                                          template_id: user.templates.first.id,
+                                          victims: campaign_victims) }
 end

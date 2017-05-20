@@ -1,0 +1,30 @@
+<% provide(:title, 'Create Campaign') %>
+<h1 class="col-md-6">Create Campaign</h1>
+
+<div class="col-md-6">
+    <%= form_for(@campaign) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :smtp_server %>
+        <%= f.text_field :smtp_server, class: 'form-control' %>
+
+        <%= f.label :from %>
+        <%= f.text_field :from, class: 'form-control' %>
+
+        <%= f.label :from_alias %>
+        <%= f.text_field :from_alias, class: 'form-control' %>
+
+        <%= f.label :subject %>
+        <%= f.text_field :subject, class: 'form-control' %>
+
+        <%= f.label :template_id %>
+        <%= f.collection_select :template_id, current_user.templates, :id, :name, class: 'form-control' %>
+
+        <%= f.label :victims %>
+        <%= f.text_area :victims, class: 'form-control' %>
+
+        <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+</div>
