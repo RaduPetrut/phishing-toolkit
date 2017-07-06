@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   post '/start/campaign', to: 'campaigns#start_campaign'
 
+  post '/create/report', to: 'reports#create_report'
+
   resources :users
-  resources :templates
   resources :campaigns
+  resources :templates
+  resources :reports
 end

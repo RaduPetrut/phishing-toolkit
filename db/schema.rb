@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518130331) do
+ActiveRecord::Schema.define(version: 20170522170312) do
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20170518130331) do
     t.text     "victims",     limit: 65535
     t.index ["user_id", "created_at"], name: "index_campaigns_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+  end
+
+  create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "campaign"
+    t.string   "victim"
+    t.string   "username"
+    t.string   "password"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_reports_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
   end
 
   create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,5 +59,6 @@ ActiveRecord::Schema.define(version: 20170518130331) do
   end
 
   add_foreign_key "campaigns", "users"
+  add_foreign_key "reports", "users"
   add_foreign_key "templates", "users"
 end

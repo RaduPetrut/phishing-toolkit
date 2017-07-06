@@ -1,0 +1,8 @@
+<li id="report-<%= report.id %>">
+	<%= link_to report.id, report %>
+ 	<span class="timestamp">
+    Received <%= time_ago_in_words(report.created_at) %> ago.
+    <%= link_to "delete", report, method: :delete, 
+    									data: { confirm: "Are you sure?" } %>
+  </span>
+</li>

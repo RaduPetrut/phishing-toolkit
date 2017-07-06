@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   before_action :logged_in_user, only: [:index, :create, :destroy, :update, :show]
   before_action :campaign_belongs_to_logged_in_user, only: [:show]
+  skip_before_action :verify_authenticity_token
 
   def new
     @campaign = Campaign.new
@@ -48,7 +49,7 @@ class CampaignsController < ApplicationController
 
   def start_campaign
     require 'net/smtp'
-
+    
     @campaign = current_user.campaigns.find_by(id: params[:campaign_id])
     @template = current_user.templates.find_by(id: @campaign.template_id)
     if @template.nil?
@@ -56,15 +57,24 @@ class CampaignsController < ApplicationController
       redirect_to campaigns_path and return
     end
 
+    body = @template.description
+    link = body[/.*<([^>]*)/, 1]
+    injected_link = link + '?uid=' + current_user.id.to_s + '&cid=' + @campaign.id.to_s + '&vid=1 '
+    #injected_html_link = '<a href="' + link + '?uid=' + current_user.id.to_s + '&cid=' + @campaign.id.to_s + '&vid=1' + '">here</a>'
+    body.sub! '<' + link + '>', injected_link
+
+    #debugger
+
     msg = <<END_OF_MESSAGE
 From: #{@campaign.from_alias} <#{@campaign.from}>
 To: <#{@campaign.victims}>
 Subject: #{@campaign.subject}
 
-#{@template.description}
+#{body}
 END_OF_MESSAGE
     begin
       smtp = Net::SMTP.start(@campaign.smtp_server)
+      #smtp = Net::SMTP.start @campaign.smtp_server, 25, 'localhost.localdomain', 'ovecheiubire@gmx.com', 'Parolade12345', :login
       sendMsg = smtp.send_message msg, @campaign.from, @campaign.victims
       if "250" == sendMsg.status
         flash[:success] = "SMTP reply code: 250 (Requested mail action okay, completed)"

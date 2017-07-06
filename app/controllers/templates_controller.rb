@@ -39,7 +39,7 @@ class TemplatesController < ApplicationController
   def update
     @template = current_user.templates.find_by(id: params[:id])
     if @template.update_attributes(template_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Template updated!"
       redirect_to @template
     else
       render 'show'

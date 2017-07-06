@@ -1,0 +1,11 @@
+<% provide(:title, 'Reports') %>
+<h1 class="col-md-6">Reports</h1>
+
+<div class="col-md-6">
+    <% if @current_user.reports.any? %>
+        <ol class="reports">
+            <%= render @reports %>
+        </ol>
+        <%= will_paginate @reports %>
+    <% end %> 
+</div>
